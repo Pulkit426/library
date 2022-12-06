@@ -24,8 +24,18 @@ var bookDisplayContainer = document.querySelector(".book-display")
 
 function displayBook(book){
     let bookPara = document.createElement("p")
+    let removeButton = document.createElement("button")
+    removeButton.innerText= "Remove"
     bookPara.innerText = ` ${book.title} by ${book.author} having ${book.pages} pages, ${book.readStatus}`
     bookDisplayContainer.appendChild(bookPara)
+    removeButton.addEventListener('click', () => removeBook(book))
+    bookDisplayContainer.appendChild(removeButton)
+} 
+
+function removeBook(book){
+    myLibrary = myLibrary.filter(item => item.title!=book.title)
+    bookDisplayContainer.innerHTML = ''
+    displayEveryBook()
 }
 
 function displayEveryBook(){
