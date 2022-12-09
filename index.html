@@ -19,31 +19,30 @@
             + Add Book
             </button>
         </div>
-       
-    </main>
-    <div>
-        <form id="form" class="form hidden">
-            <input type="text" placeholder="Title" name="title" required /> 
-            <input type="text" placeholder="Author" name="author" required /> 
-            <input type="number" placeholder="Pages" name="pages" required />
+        <div>
+            <form name="book-form" id="form" class="form hidden">
+                <input type="text" placeholder="Title" name="title" required /> 
+                <input type="text" placeholder="Author" name="author" required /> 
+                <input type="number" placeholder="Pages" name="pages" required />
 
-            <div class="read-checkbox-container"> 
-                <label> Read </label>
-                <input class="checked" type="checkbox"> 
-            </div>
+                <div class="read-checkbox-container"> 
+                    <label> Read </label>
+                    <input class="checked" type="checkbox" name="readStatus"> 
+                </div>
+                
+
+                <div> 
+                    <button type="submit" class="submit-button"> Submit </button>
+                    <button class="return-button">Return</button> 
+                </div>
+
             
+            </form>
 
-            <div> 
-                <button type="submit" class="submit-button"> Submit </button>
-                <button class="return-button">Return</button> 
+            <div class="book-display">
+
             </div>
-
-           
-        </form>
-
-        <div class="book-display">
-
         </div>
-    </div>
+    </main>
 </body>
 </html>

@@ -4,17 +4,17 @@ function Book(title, author, pages, readStatus){
 this.title = title
 this.author = author
 this.pages = pages
-this.readStatus = readStatus || "Not Read"
+this.readStatus = readStatus ? "Read" : "Not Read"
 }
 
 function addBookToLibrary(book){
     myLibrary.push(book)
 }
 
-var book1  = new Book("Game of Thrones","George Martin",1000, "Read")
-var book2 = new Book("Harry Potter","JK Rowling",350)
-var book3 = new Book("1984","George Orwell", 400, "Not Read")
-var book4 = new Book("Atomic Habits","James Clear",250, "Read")
+var book1  = new Book("A Game of Thrones","George R. R. Martin",694, "Read")
+var book2 = new Book("To Kill a Mockingbird","Harper Lee",336)
+var book3 = new Book("1984","George Orwell", 328, "Not Read")
+var book4 = new Book("Atomic Habits","James Clear",320, "Read")
 addBookToLibrary(book1)
 addBookToLibrary(book2)
 addBookToLibrary(book3)
@@ -23,17 +23,42 @@ addBookToLibrary(book4)
 var bookDisplayContainer = document.querySelector(".book-display")
 
 function displayBook(book){
+    console.log(book)
     let bookCard= document.createElement('div')
     bookCard.classList.add('card')
 
-    let bookPara = document.createElement("p")
-    bookPara.innerText = ` ${book.title} by ${book.author} having ${book.pages} pages, ${book.readStatus}`
+    let bookDivTitle = document.createElement("div")
+    bookDivTitle.innerText = ` ${book.title}`
+    bookDivTitle.style.color = "brown"
+    bookDivTitle.style.fontSize = "larger"
+    bookCard.appendChild(bookDivTitle)
+
+    let bookDivAuthor = document.createElement("div")
+    bookDivAuthor.innerText = ` ${book.author}`
+    bookCard.appendChild(bookDivAuthor)
+
+    let bookDivPages = document.createElement("div")
+    bookDivPages.innerText = ` ${book.pages} Pages`
+    bookCard.appendChild(bookDivPages)
+
+    let bookDivRead = document.createElement("button")
+    bookDivRead.innerText = `${book.readStatus}`
+    bookDivRead.classList.add("toggle-read-button")
+    bookCard.appendChild(bookDivRead)
+
+    bookDivRead.addEventListener('click', () => {
+        let readStatus = bookDivRead.innerText
+        bookDivRead.innerHTML = ''
+        bookDivRead.innerText = readStatus==="Read" ? "Not Read" : "Read"
+    })
+
 
     let removeButton = document.createElement("button")
     removeButton.innerText= "Remove"
+    removeButton.classList.add("remove-book-button")
     removeButton.addEventListener('click', () => removeBook(book))
 
-    bookCard.appendChild(bookPara)
+   
     bookCard.appendChild(removeButton)
     bookDisplayContainer.appendChild(bookCard)
 } 
@@ -57,15 +82,18 @@ var submitButton = document.querySelector('.submit-button')
 
 submitButton.addEventListener('click', (e) => {
     e.preventDefault()
-    let bookValues = Array.from(formData).map( (item) =>  item.value) 
-    if(!bookValues.every(item => item!="")){
+    let bookValues = Array.from(formData).map( (item) =>  item.name!=="readStatus" ? item.value : item.checked) 
+    if(!bookValues.every(item => item!="" || (item===true || item===false))){
         alert("Please Enter all the Values")
         return 
     }
+    console.log("BOOK VALUES", bookValues)
 
     var newBook =  new Book(...bookValues)
     addBookToLibrary(newBook)
     displayBook(newBook)
+
+    document.book-form.reset()
 })
 
 var formElement = document.querySelector('#form')

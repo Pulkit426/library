@@ -4,14 +4,16 @@ body{
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #ee9;
-}
+    background-color: #fda4af;
+
+    background-color: #85FFBD;
+    background-image: linear-gradient(138deg, #85FFBD 0%, #FFFB7D 100%);}
 
 header{
     font-size: 48px;
     font-weight: 900;
     height: 100px;
-    background-color: lightsalmon;
+    background-color: #93c5fd;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,20 +25,23 @@ header{
     justify-content: center;
 }
 
-.add-book-button{
+button{
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;   
+}
+
+.add-book-button{
     height: 50px;
     width: 150px;
     margin: 15px;
-    border-radius: 5px;
-    border: none;
 }
 
-button:hover{
-    background-color: lightgray;
-    cursor: pointer;
+.add-book-button:hover{
+    background-color: green;
 }
 
 .form{
@@ -75,16 +80,18 @@ input{
 
 .submit-button,
 .return-button{
-    font-family: 'Roboto', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
     height: 40px;
     width: 80px;
     margin: 15px;
-    border-radius: 5px;
-    border: none;
 }
 
+.submit-button:hover{
+    background-color: cyan;
+}
+
+.return-button:hover{
+    background-color: #fda4af;
+}
 
 .book-display{
     display: flex;
@@ -97,13 +104,42 @@ input{
     height: 250px;
     width: 300px;
     margin: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 22px;
+    font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: aqua;
+    background-color: rgb(190, 224, 224);
+}
+
+.card>div{
+    margin: 10px;
 }
 
 .hidden{
     display: none;
+}
+
+.toggle-read-button{
+    height: 50px;
+    width: 150px;
+    margin: 5px;
+}
+
+.toggle-read-button:hover{
+    background-color: #85FFBD;
+}
+
+.remove-book-button{
+    height: 50px;
+    width: 150px;
+    margin: 5px;
+    background-color: rgb(245, 144, 140);
+}
+
+.remove-book-button:hover{
+    background-color: rgb(214, 38, 32);
 }
