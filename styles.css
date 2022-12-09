@@ -4,6 +4,7 @@ body{
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+    background-color: #ee9;
 }
 
 header{
@@ -33,10 +34,57 @@ header{
     border: none;
 }
 
-.add-book-button:hover{
+button:hover{
     background-color: lightgray;
     cursor: pointer;
 }
+
+.form{
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+input{
+    height: 25px;
+    width: 200px;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;   
+}
+
+.read-checkbox-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 800;
+    margin-top: 15px;
+    margin-left: -130px;
+
+}
+
+.checked{
+    height: 20px;
+    width: 20px;
+    margin-left: 10px;
+}
+
+
+.submit-button,
+.return-button{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    height: 40px;
+    width: 80px;
+    margin: 15px;
+    border-radius: 5px;
+    border: none;
+}
+
 
 .book-display{
     display: flex;

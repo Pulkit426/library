@@ -58,6 +58,11 @@ var submitButton = document.querySelector('.submit-button')
 submitButton.addEventListener('click', (e) => {
     e.preventDefault()
     let bookValues = Array.from(formData).map( (item) =>  item.value) 
+    if(!bookValues.every(item => item!="")){
+        alert("Please Enter all the Values")
+        return 
+    }
+
     var newBook =  new Book(...bookValues)
     addBookToLibrary(newBook)
     displayBook(newBook)
