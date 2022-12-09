@@ -15,3 +15,47 @@ header{
     align-items: center;
     justify-content: center;
 }
+
+.add-book-button-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-book-button{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    height: 50px;
+    width: 150px;
+    margin: 15px;
+    border-radius: 5px;
+    border: none;
+}
+
+.add-book-button:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.book-display{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+
+.card{
+    height: 250px;
+    width: 300px;
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: aqua;
+}
+
+.hidden{
+    display: none;
+}

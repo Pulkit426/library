@@ -23,13 +23,19 @@ addBookToLibrary(book4)
 var bookDisplayContainer = document.querySelector(".book-display")
 
 function displayBook(book){
+    let bookCard= document.createElement('div')
+    bookCard.classList.add('card')
+
     let bookPara = document.createElement("p")
+    bookPara.innerText = ` ${book.title} by ${book.author} having ${book.pages} pages, ${book.readStatus}`
+
     let removeButton = document.createElement("button")
     removeButton.innerText= "Remove"
-    bookPara.innerText = ` ${book.title} by ${book.author} having ${book.pages} pages, ${book.readStatus}`
-    bookDisplayContainer.appendChild(bookPara)
     removeButton.addEventListener('click', () => removeBook(book))
-    bookDisplayContainer.appendChild(removeButton)
+
+    bookCard.appendChild(bookPara)
+    bookCard.appendChild(removeButton)
+    bookDisplayContainer.appendChild(bookCard)
 } 
 
 function removeBook(book){
@@ -57,3 +63,16 @@ submitButton.addEventListener('click', (e) => {
     displayBook(newBook)
 })
 
+var formElement = document.querySelector('#form')
+var addBookButton = document.querySelector('.add-book-button')
+var returnButton = document.querySelector('.return-button')
+
+addBookButton.addEventListener('click', () => {
+    addBookButton.classList.toggle('hidden')
+    formElement.classList.toggle('hidden')
+})
+
+returnButton.addEventListener('click', () => {
+    addBookButton.classList.toggle('hidden')
+    formElement.classList.toggle('hidden')
+})
